@@ -1,0 +1,145 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8b7ganjht8qc"]
+
+[ext_resource type="Script" uid="uid://yy26t7ni6a74" path="res://game.gd" id="1_t88pq"]
+[ext_resource type="Texture2D" uid="uid://bgcnq88ywspp0" path="res://Images/New Project (8) (1).png" id="1_wbfu4"]
+[ext_resource type="Texture2D" uid="uid://bmytcqkownajs" path="res://Images/Layer 1.png" id="2_xkndl"]
+[ext_resource type="Texture2D" uid="uid://genmiubawfco" path="res://Images/159078.png" id="3_sb48q"]
+[ext_resource type="Texture2D" uid="uid://cwwgkd6lgyehx" path="res://Images/touch.png" id="4_t88pq"]
+[ext_resource type="Texture2D" uid="uid://b2fdap8w31ek2" path="res://Images/ChatGPT Image May 17, 2025, 07_41_46 PM.png" id="5_r0x5m"]
+
+[sub_resource type="Animation" id="Animation_sb48q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button/Layer1:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button/Layer1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_u44n3"]
+resource_name = "Spin"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button/Layer1:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2.82843, 2.82843),
+"update": 0,
+"values": [0.0, 1.56905]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button/Layer1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.491667),
+"transitions": PackedFloat32Array(2.82843, 2.82843),
+"update": 0,
+"values": [0.0, 3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t88pq"]
+_data = {
+&"RESET": SubResource("Animation_sb48q"),
+&"Spin": SubResource("Animation_u44n3")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_r0x5m"]
+font_size = 66
+
+[sub_resource type="LabelSettings" id="LabelSettings_3mrqo"]
+font_size = 36
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t88pq")
+
+[node name="NewProject(8)" type="Sprite2D" parent="."]
+position = Vector2(324, 576)
+texture = ExtResource("1_wbfu4")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 342.0
+offset_right = 563.0
+offset_bottom = 737.0
+flat = true
+
+[node name="Layer1" type="Sprite2D" parent="Button"]
+position = Vector2(247, 192)
+texture = ExtResource("2_xkndl")
+
+[node name="159078" type="Sprite2D" parent="Button/Layer1"]
+position = Vector2(3, -3)
+scale = Vector2(0.769531, 0.769531)
+texture = ExtResource("3_sb48q")
+
+[node name="bra" type="Sprite2D" parent="Button/Layer1"]
+position = Vector2(2.99997, -3)
+scale = Vector2(0.332031, 0.332031)
+texture = ExtResource("5_r0x5m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Button/Layer1"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_t88pq")
+}
+
+[node name="Player" type="Label" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 181.0
+offset_right = 545.0
+offset_bottom = 273.0
+text = "اللاعب #1"
+label_settings = SubResource("LabelSettings_r0x5m")
+horizontal_alignment = 2
+
+[node name="Inst" type="Label" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 755.0
+offset_right = 535.0
+offset_bottom = 981.0
+text = "اضغط لرؤية الكلمة
+ التي لا يعرفها
+-برا الموضوع-"
+label_settings = SubResource("LabelSettings_3mrqo")
+horizontal_alignment = 2
+
+[node name="Touch" type="Sprite2D" parent="."]
+position = Vector2(152, 226)
+scale = Vector2(0.131546, 0.131546)
+texture = ExtResource("4_t88pq")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

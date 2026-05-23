@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://dh4rqetpen04s"]
+
+[ext_resource type="Texture2D" uid="uid://cpe4vtqe243oo" path="res://Images/New Project (8).png" id="1_6vxcf"]
+[ext_resource type="Texture2D" uid="uid://b2fdap8w31ek2" path="res://Images/ChatGPT Image May 17, 2025, 07_41_46 PM.png" id="2_ocves"]
+[ext_resource type="Texture2D" uid="uid://bf6kpa033epvs" path="res://Images/button (3).png" id="3_4oy2k"]
+[ext_resource type="Texture2D" uid="uid://dyyby7o7tqj6e" path="res://Images/button.png" id="4_imstj"]
+[ext_resource type="Script" uid="uid://dg5clpk6e1xqw" path="res://texture_button.gd" id="5_4lp6j"]
+[ext_resource type="FontFile" uid="uid://bjr7yeiejgjkx" path="res://Changa-Regular.ttf" id="6_10lsi"]
+[ext_resource type="AudioStream" uid="uid://57sbhgdn30l" path="res://click-buttons-ui-menu-sounds-effects-button-7-203601.mp3" id="7_imstj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xfbil"]
+font = ExtResource("6_10lsi")
+font_size = 32
+font_color = Color(0.988235, 0.866667, 0.717647, 1)
+outline_size = 10
+outline_color = Color(0.207843, 0.117647, 0.431373, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewProject(8)" type="Sprite2D" parent="."]
+position = Vector2(308, 598)
+scale = Vector2(2.53086, 1.90808)
+texture = ExtResource("1_6vxcf")
+
+[node name="ChatGptImageMay17,2025,074146Pm" type="Sprite2D" parent="."]
+position = Vector2(324, 356.5)
+scale = Vector2(0.55957, 0.55957)
+texture = ExtResource("2_ocves")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 525.0
+offset_right = 501.0
+offset_bottom = 610.0
+scale = Vector2(0.845, 0.845)
+texture_normal = ExtResource("3_4oy2k")
+texture_pressed = ExtResource("4_imstj")
+script = ExtResource("5_4lp6j")
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 8.0
+offset_right = 229.0
+offset_bottom = 68.0
+text = "العودة"
+label_settings = SubResource("LabelSettings_xfbil")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_imstj")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

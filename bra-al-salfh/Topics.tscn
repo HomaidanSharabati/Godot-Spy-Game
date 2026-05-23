@@ -1,0 +1,150 @@
+[gd_scene load_steps=15 format=3 uid="uid://d4k43e02np134"]
+
+[ext_resource type="Texture2D" uid="uid://cpe4vtqe243oo" path="res://Images/New Project (8).png" id="1_miym4"]
+[ext_resource type="Texture2D" uid="uid://b2fdap8w31ek2" path="res://Images/ChatGPT Image May 17, 2025, 07_41_46 PM.png" id="2_g3fvu"]
+[ext_resource type="Texture2D" uid="uid://bf6kpa033epvs" path="res://Images/button (3).png" id="3_a0crn"]
+[ext_resource type="Script" uid="uid://b3fmi0mue665r" path="res://new_project(8).gd" id="3_r8a5y"]
+[ext_resource type="Texture2D" uid="uid://dyyby7o7tqj6e" path="res://Images/button.png" id="4_r8a5y"]
+[ext_resource type="FontFile" uid="uid://bjr7yeiejgjkx" path="res://Changa-Regular.ttf" id="6_1y61y"]
+[ext_resource type="Texture2D" uid="uid://bum7m5jyn3hbl" path="res://Images/flags.svg" id="7_dbj4d"]
+[ext_resource type="Texture2D" uid="uid://dbe5cnt2v1j0y" path="res://Images/2007252-200.svg" id="8_qs0d4"]
+[ext_resource type="Texture2D" uid="uid://cyowbqhpi2xf" path="res://Images/sports-10.svg" id="9_tcv1t"]
+[ext_resource type="Texture2D" uid="uid://cgsdby52a8whc" path="res://Images/672675.svg" id="10_g4r2s"]
+[ext_resource type="Texture2D" uid="uid://bclodb7gvphr5" path="res://Images/535239.svg" id="11_8u12v"]
+[ext_resource type="Texture2D" uid="uid://bqsjbodamp7ji" path="res://Images/75588.svg" id="12_hhfmw"]
+[ext_resource type="AudioStream" uid="uid://57sbhgdn30l" path="res://click-buttons-ui-menu-sounds-effects-button-7-203601.mp3" id="13_g3fvu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tpcmb"]
+font = ExtResource("6_1y61y")
+font_size = 32
+font_color = Color(0.988235, 0.866667, 0.717647, 1)
+outline_size = 10
+outline_color = Color(0.207843, 0.117647, 0.431373, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Window" type="Window" parent="."]
+position = Vector2i(-6916, -8204)
+script = ExtResource("3_r8a5y")
+
+[node name="NewProject(8)2" type="Sprite2D" parent="."]
+position = Vector2(308, 598)
+scale = Vector2(2.53086, 1.90808)
+texture = ExtResource("1_miym4")
+
+[node name="ChatGptImageMay17,2025,074146Pm" type="Sprite2D" parent="."]
+position = Vector2(324, 356.5)
+scale = Vector2(0.55957, 0.55957)
+texture = ExtResource("2_g3fvu")
+
+[node name="Confirm" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 927.0
+offset_right = 479.0
+offset_bottom = 1012.0
+scale = Vector2(1.255, 1.255)
+pivot_offset = Vector2(170, 42.5)
+texture_normal = ExtResource("3_a0crn")
+texture_pressed = ExtResource("4_r8a5y")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Confirm"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 8.0
+offset_right = 229.0
+offset_bottom = 68.0
+text = "تأكيد"
+label_settings = SubResource("LabelSettings_tpcmb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Countries" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 642.0
+offset_right = 320.0
+offset_bottom = 695.0
+button_pressed = true
+text = "الدول"
+icon = ExtResource("7_dbj4d")
+alignment = 1
+expand_icon = true
+
+[node name="Objects" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 710.0
+offset_right = 320.0
+offset_bottom = 763.0
+button_pressed = true
+text = "جماد"
+icon = ExtResource("8_qs0d4")
+alignment = 1
+expand_icon = true
+
+[node name="Sports" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 574.0
+offset_right = 324.0
+offset_bottom = 628.0
+button_pressed = true
+text = "الرياضات"
+icon = ExtResource("9_tcv1t")
+alignment = 1
+expand_icon = true
+
+[node name="Animals" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 574.0
+offset_right = 579.0
+offset_bottom = 628.0
+button_pressed = true
+text = "حيوانات"
+icon = ExtResource("10_g4r2s")
+alignment = 1
+expand_icon = true
+
+[node name="Places" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 642.0
+offset_right = 579.0
+offset_bottom = 696.0
+button_pressed = true
+text = "اماكن"
+icon = ExtResource("11_8u12v")
+alignment = 1
+expand_icon = true
+
+[node name="Transportation" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 707.0
+offset_right = 579.0
+offset_bottom = 761.0
+button_pressed = true
+text = "وسائل النقل"
+icon = ExtResource("12_hhfmw")
+alignment = 1
+expand_icon = true
+
+[node name="ClickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_g3fvu")
+
+[connection signal="pressed" from="Confirm" to="Window" method="_on_confirm_pressed"]
+[connection signal="toggled" from="Countries" to="Window" method="_on_countries_toggled"]
+[connection signal="toggled" from="Objects" to="Window" method="_on_objects_toggled"]
+[connection signal="toggled" from="Sports" to="Window" method="_on_sports_toggled"]
+[connection signal="toggled" from="Animals" to="Window" method="_on_animals_toggled"]
+[connection signal="toggled" from="Places" to="Window" method="_on_places_toggled"]
+[connection signal="toggled" from="Transportation" to="Window" method="_on_transportation_toggled"]

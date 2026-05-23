@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://xa2w8u2n83cs"]
+
+[ext_resource type="Script" uid="uid://bpwet527rsl04" path="res://timer.gd" id="1_fupqg"]
+[ext_resource type="Texture2D" uid="uid://cpe4vtqe243oo" path="res://Images/New Project (8).png" id="1_ieeno"]
+[ext_resource type="Texture2D" uid="uid://b2fdap8w31ek2" path="res://Images/ChatGPT Image May 17, 2025, 07_41_46 PM.png" id="2_vufip"]
+[ext_resource type="Texture2D" uid="uid://bf6kpa033epvs" path="res://Images/button (3).png" id="3_i8p7w"]
+[ext_resource type="Texture2D" uid="uid://dyyby7o7tqj6e" path="res://Images/button.png" id="4_e61f5"]
+[ext_resource type="Script" uid="uid://fni4t2ghupgc" path="res://play.gd" id="5_wp4om"]
+[ext_resource type="FontFile" uid="uid://bjr7yeiejgjkx" path="res://Changa-Regular.ttf" id="6_hjtrj"]
+[ext_resource type="AudioStream" uid="uid://57sbhgdn30l" path="res://click-buttons-ui-menu-sounds-effects-button-7-203601.mp3" id="8_ieeno"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tc3pe"]
+font = ExtResource("6_hjtrj")
+font_size = 32
+font_color = Color(0.988235, 0.866667, 0.717647, 1)
+outline_size = 10
+outline_color = Color(0.207843, 0.117647, 0.431373, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fupqg"]
+font_size = 91
+font_color = Color(0.988235, 0.866667, 0.717647, 1)
+outline_size = 10
+outline_color = Color(0.207843, 0.117647, 0.431373, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fupqg")
+
+[node name="NewProject(8)" type="Sprite2D" parent="."]
+position = Vector2(308, 598)
+scale = Vector2(2.53086, 1.90808)
+texture = ExtResource("1_ieeno")
+
+[node name="ChatGptImageMay17,2025,074146Pm" type="Sprite2D" parent="."]
+position = Vector2(324, 291)
+scale = Vector2(0.55957, 0.55957)
+texture = ExtResource("2_vufip")
+
+[node name="play" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 911.0
+offset_right = 479.0
+offset_bottom = 996.0
+scale = Vector2(1.255, 1.255)
+pivot_offset = Vector2(170, 42.5)
+texture_normal = ExtResource("3_i8p7w")
+texture_pressed = ExtResource("4_e61f5")
+stretch_mode = 3
+script = ExtResource("5_wp4om")
+
+[node name="Label" type="Label" parent="play"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 8.0
+offset_right = 229.0
+offset_bottom = 68.0
+text = "العودة"
+label_settings = SubResource("LabelSettings_tc3pe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="Timer"]
+offset_left = -127.0
+offset_top = 502.0
+offset_right = 736.0
+offset_bottom = 753.0
+label_settings = SubResource("LabelSettings_fupqg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ieeno")
+
+[connection signal="pressed" from="play" to="play" method="_on_pressed"]
